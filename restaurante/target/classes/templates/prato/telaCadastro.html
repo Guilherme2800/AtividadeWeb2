@@ -1,0 +1,41 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body>
+	<div th:replace="~{base :: logo}"></div>
+
+	<div class="container">
+	
+		<div> 
+		<a href="/home"><button class="btn btn-primary">Home</button></a>
+		</div>
+		<hr>
+	
+		<div th:replace="~{base :: titulo('Cadastrar Prato')}"></div>
+
+		<div class="card mt-3">
+			<form class="card-body" action="/prato/cadastrar" method="POST">
+
+				<div class="form-group">
+					<label for="nome">Nome</label> <input type="text" name="nome"
+						placeholder="Nome" required="required" class="form-control"> <small>Informe o seu nome</small>
+				</div>
+
+				<div class="form-group">
+					<label for="descricao">Descrição</label> <input type="text" name="descricao"
+						placeholder="descricao" required="required" class="form-control"> <small>Informe a descricao</small>
+				</div>
+
+				<div class="form-group">
+					<label for="preco">Preço</label> <input type="number" name="preco"
+						placeholder="preco" required="required" class="form-control"> <small>Informe o preço</small>
+				</div>
+
+				<input type="submit" value="Cadastrar">
+
+			</form>
+		</div>
+		
+
+	</div>
+</body>
+</html>

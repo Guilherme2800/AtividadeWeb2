@@ -1,0 +1,60 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body>
+	<div th:replace="~{base :: logo}"></div>
+
+	<div class="container">
+		<div>
+			<a href="/home"><button
+					class="btn btn-primary">Home</button></a>
+		</div>
+		<hr>
+		<div th:replace="~{base :: titulo('Novo Pedido')}"></div>
+
+		<div class="card mt-3">
+
+			<div class="card mb-3">
+				<div class="card-header" th:text="${prato.nome}">Nome do
+					Produto</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-12 col-sm-8 mb-3">
+							<div class="row ">
+								<div class="col-md-5">
+									Valor: <span th:text="${prato.preco}"></span>
+								</div>
+								<div class="col-md-6">
+									Descricao: <span th:text="${prato.descricao}"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<form class="card-body"
+				th:action="@{/pedido/realizarPedido(id=${prato.id})}" method="POST">
+
+				<div class="form-group">
+
+					<label for="observacao">Observação</label>
+					<textarea name="observacao" rows="4" cols="50"></textarea>
+					<br>
+					
+					<label>Informe o método de pagamento</label> <select
+						name="formaPagamento.descricao"  required="required">
+						<option th:each="formaPagamento : ${formasPagamento}"
+							th:value="${formaPagamento.descricao}"
+							th:text="${formaPagamento.descricao}"></option>
+					</select>
+				</div>
+
+				<input class="btn btn-success" type="submit" value="Gerar pedido">
+
+			</form>
+		</div>
+
+
+	</div>
+</body>
+</html>

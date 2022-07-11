@@ -1,0 +1,30 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body>
+	<div th:replace="~{base :: logo}"></div>
+
+	<div class="container">
+		<div> 
+		<a href="/home"><button class="btn btn-primary">Home</button></a>
+		</div>
+		<hr>
+		<div th:replace="~{base :: titulo('Clientes Cadastrados')}"></div>
+		<br>
+		<div class="card mb-3" th:each="cliente : ${clientes}">
+				<div class="card-header" th:text="${cliente.nome}">Nome do Produto</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-12 col-sm-8 mb-3">
+							<div class="row ">
+								<div class="col-md-4">Telefone: <span th:text="${cliente.telefoneContato}"></span></div>
+								<div class="col-md-4">CPF: <span th:text="${cliente.cpf}"></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		
+
+	</div>
+</body>
+</html>

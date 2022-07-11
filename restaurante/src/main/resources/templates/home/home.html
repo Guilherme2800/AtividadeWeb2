@@ -1,0 +1,30 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body>
+	<div th:replace="~{base :: logo}"></div>
+
+	<div class="container">
+		<div> 
+		<a th:each="opcao : ${opcoes}" th:href="${opcao.url}" style="padding-left: 5px;"><button th:text="${opcao.nome}" class="btn btn-primary">Opção</button></a>
+		</div>
+		<hr>
+		<br>
+		<div class="card mb-3" th:each="prato : ${pratos}">
+				<div class="card-header" th:text="${prato.nome}">Nome do Produto</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-12 ">
+							<div class="row ">
+								<div class="col-md-4">Valor: <span th:text="${prato.preco}"></span></div>
+								<div class="col-md-4">Descricao: <span th:text="${prato.descricao}"></span></div>
+								<div class="col-md-4"><a th:href="@{/pedido/realizarPedidoTela(id=${prato.id})}"><button class="btn btn-success">Comprar</button></a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		
+
+	</div>
+</body>
+</html>

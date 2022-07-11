@@ -1,0 +1,31 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body>
+	<div th:replace="~{base :: logo}"></div>
+
+	<div class="container">
+	
+		<div> 
+		<a href="/home"><button class="btn btn-primary">Home</button></a>
+		</div>
+		<hr>
+	
+		<div th:replace="~{base :: titulo('Cadastrar forma de pagamento')}"></div>
+
+		<div class="card mt-3">
+			<form class="card-body" action="/formaPagamento/cadastrar" method="POST">
+
+				<div class="form-group">
+					<label for="descricao">Nome da forma de pagamento</label> <input type="text" name="descricao"
+						placeholder="Forma de pagamento" required="required" class="form-control"> <small>Informe a nova forma de pagamento</small>
+				</div>
+
+				<input type="submit" value="Cadastrar">
+
+			</form>
+		</div>
+		
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body>
+	<div th:replace="~{base :: logo}"></div>
+
+	<div class="container">
+	
+	<a th:href="@{/login}"><button class="btn btn-primary">Pagina de login</button></a>
+	<hr>
+	
+		<div th:replace="~{base :: titulo('Cadastrar Cliente')}"></div>
+
+		<div class="card mt-3">
+			<form class="card-body" action="/cliente/cadastrar" method="POST">
+
+				<div class="form-group">
+					<label for="nome">Nome</label> <input type="text" name="nome"
+						placeholder="Nome" required="required" class="form-control"> <small>Informe o seu nome</small>
+				</div>
+
+				<div class="form-group">
+					<label for="cpf">CPF</label> <input type="text" name="cpf"
+						placeholder="cpf" required="required" class="form-control"> <small>Informe o seu cpf</small>
+				</div>
+
+				<div class="form-group">
+					<label for="Email">Email</label> <input type="text" name="Email"
+						placeholder="login" required="required" class="form-control"> <small>Informe o seu email
+						para login</small>
+				</div>
+
+				<div class="form-group">
+					<label for="senha">Senha</label> <input type="password"
+						name="senha" placeholder="senha" required="required" class="form-control"> <small>Informe a
+						sua senha</small>
+				</div>
+
+				<div class="form-group">
+					<label for="telefoneContato">Telefone</label> <input type="text"
+						name="telefoneContato" placeholder="telefone" required="required" class="form-control"> <small>Informe
+						o telefone</small>
+				</div>
+
+				<input type="submit" value="Cadastrar">
+
+			</form>
+		</div>
+		
+
+	</div>
+</body>
+</html>

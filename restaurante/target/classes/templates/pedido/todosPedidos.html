@@ -1,0 +1,33 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body>
+	<div th:replace="~{base :: logo}"></div>
+
+	<div class="container">
+		<div> 
+		<a href="/home"><button class="btn btn-primary">Home</button></a>
+		</div>
+		<hr>
+	<div th:replace="~{base :: titulo('Todos pedidos')}"></div>
+		<hr>
+		<div class="card mb-3" th:each="pedido : ${pedidos}">
+				<div class="card-header"><span th:text="${pedido.prato.nome}"></span></div>
+				<div class="card-body">
+					<div class="row">
+						<div >
+							<div class="row ">
+								<div class="col-md-4">Valor: <span th:text="${pedido.preco}"></span></div>
+								<div class="col-md-4">Observação: <span th:text="${pedido.observacao}"></span></div>
+								<div class="col-md-4">Data: <span th:text="${pedido.dataHora}"></span></div>
+								<div class="col-md-4">Forma pagamento: <span th:text="${pedido.formaPagamento.descricao}"></span></div>
+								<div class="col-md-4">Cliente: <span th:text="${pedido.cliente.nome}"></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		
+
+	</div>
+</body>
+</html>
